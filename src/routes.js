@@ -9,6 +9,14 @@ import Page4 from './pages/nav2/Page4.vue'
 import Page5 from './pages/nav2/Page5.vue'
 import Page6 from './pages/nav3/Page6.vue'
 import echarts from './pages/charts/echarts.vue'
+import VehicleManage from './pages/vehicle/VehicleManage.vue'
+import CompanyManage from './pages/vehicle/CompanyManage.vue'
+import CashboxManage from './pages/cash/CashboxManage.vue'
+import BankManage from './pages/cash/BankManage.vue'
+import CashboxTrack from './pages/cash/CashboxTrack.vue'
+import UserManage from './pages/UserManage.vue'
+import CashboxWarn from './pages/warn/CashboxWarn.vue'
+import VehicleWarn from './pages/warn/VehicleWarn.vue'
 
 let routes = [
     {
@@ -63,6 +71,47 @@ let routes = [
         iconCls: 'fa fa-bar-chart',
         children: [
             { path: '/echarts', component: echarts, name: 'echarts' }
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '预警监控',
+        iconCls: 'fa fa-exclamation-triangle',
+        children: [
+            { path: '/vehicleWarn', component: VehicleWarn, name: '基本预警' },
+            { path: '/cashboxWarn', component: CashboxWarn, name: '钱箱预警' }
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '车辆系统',
+        iconCls: 'fa fa-truck',
+        children: [
+            { path: '/vehicleManage', component: VehicleManage, name: '车辆管理' },
+            { path: '/companyManage', component: CompanyManage, name: '公司管理' }
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '钱箱系统',
+        iconCls: 'fa fa-suitcase',
+        children: [
+            { path: '/cashboxManage', component: CashboxManage, name: '钱箱管理' },
+            { path: '/bankManage', component: BankManage, name: '银行管理' },
+            { path: '/cashboxTrack', component: CashboxTrack, name: '钱箱追踪' }
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '',
+        iconCls: 'fa fa-user',
+        leaf: true,//只有一个节点
+        children: [
+            { path: '/userManage', component: UserManage, name: '用户管理' }
         ]
     },
     {
